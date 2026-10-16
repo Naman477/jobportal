@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: jobportal
+    runtime: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn jobportal.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: DJANGO_DEBUG
+        value: "False"

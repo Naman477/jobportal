@@ -3,11 +3,13 @@ URL configuration for jobportal project.
 """
 from django.contrib import admin
 from django.urls import path
+from django.http import HttpResponse
 from mainapp import views as main_views
 from adminapp import views as admin_views
 from userapp import views as user_views
 
 urlpatterns = [
+    path('ping/', lambda request: HttpResponse('pong', content_type='text/plain'), name='ping'),
     path('admin/', admin.site.urls),
 
     # --- mainapp routes ---
