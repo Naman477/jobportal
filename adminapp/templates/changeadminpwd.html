@@ -1,0 +1,51 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+<html>
+
+<body>
+    <h2 style="background-color: beige; color:#0891B2;text-align: center;">Change Admin Password</h2>
+    <hr>
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{m}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <form class="form-group" method="POST">
+        {% csrf_token %}
+        <table class="table table-bordered" style="width: 80%; margin:auto;  background-color: beige; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;font-size:medium;">
+
+            <tr>
+                <td>Enter old Password</td>
+                <td>
+                    <input type="password" name="oldpassword" class="form-control" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Enter New Password</td>
+                <td>
+                    <input type="password" name="newpassword" class="form-control" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Enter Confirm Password</td>
+                <td>
+                    <input type="password" name="confirmpassword" class="form-control" required>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn align-items-center" style="background-color: #0891B2; color:biege;">Change Password</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
+{% endblock %}

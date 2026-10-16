@@ -1,0 +1,58 @@
+
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<html>
+<body>
+
+<h2 style="color:#0891B2; background-color:BEIGE;text-align: center;">PostJob </h2>
+
+    {% if messages %}
+    {% for m in messages %}
+     {{m}}
+    {% endfor %}
+    {% endif %}
+ <hr>   
+<form class="form-group" method="post">
+{% csrf_token %}
+<table class="table table-bordered" style="width:50%; margin: auto; background-color: beige; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:medium;">
+<tr>
+    <td>Enter Job Title</td>
+    <td><input type="text" name="title" class="form-control"required/>
+    </td>
+</tr>
+<tr>
+    <td>Enter Job Description</td>
+    <td><textarea name="description" class="form-control" required></textarea></td>
+</tr>
+<tr>
+    <td>Enter Location</td>
+    <td><input type="text" name="location" class="form-control" required></td>
+</tr>
+<tr>
+    <td>Enter Salary</td>
+    <td><input type="number" name="salary" class="form-control" required></td>
+</tr>
+<tr>
+    <td>Select Job Type</td>
+    <td><select name="jobtype" class="form-control">
+            <option>select job </option>
+            <option>Full time</option>
+            <option>Part time</option>
+            <option>Internship</option>
+    </select></td>
+</tr>
+<tr>
+    <td>Enter Last Date</td>
+    <td><input type="date" name="lastdate" class="form-control"></td>
+</tr>
+<tr>
+    <td></td>
+    <td>
+        <button type="submit" class="btn" style="background-color: #0891B2;color: aliceblue;">Post Job</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

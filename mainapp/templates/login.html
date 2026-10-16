@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .badge {
+            background: linear-gradient(135deg, #0b7c92,#0a7286);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 16px;
+            box-shadow: 0 0 15px rgba(8, 111, 163, 0.4);
+            animation: slideDown 2s ease-in forwards, pulseGlow 2s infinite 0.8s;
+            border: none;
+            outline: none;
+            display: inline-block;
+            width: 900px;
+            opacity: 0;
+            align-items:left;
+            margin-top: 9px;
+            margin-left: 250px;
+            margin-bottom: 9px;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+     .card{
+        text-align: center;
+        background-color: #0b6b7f;
+        border: 1px solid #0b6b7f;
+     }  
+     .bgimg{
+         background-color:beige;
+            color: #0a7286;
+            margin-bottom: 4vh;
+            background-image:linear-gradient(135deg, rgba(15, 23, 42, 0.75)0%, rgba(15, 23, 42, 0.75)),url('');
+            border: 1px dashed #0a7286;
+            background-size: cover;
+            background-position: top;
+            background-repeat:no-repeat ;
+            margin-left: 5px;
+            animation: flapin 0.6s ease both;
+            align-items: right;
+
+     } 
+      @keyframes flapin {
+      0% {
+        transform: rotateX(120deg);
+        opacity: 0;
+      }
+
+      60% {
+        transform: rotateX(-10deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotateX(0deg);
+      }
+    }
+
+    .bgimg .flap {
+      animation-delay: 5s;
+    }
+
+    </style>
+</head>
+
+<body style="color:black;">
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{m}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+     <div class="col-sm-12 bgimg">
+        </div>
+    <div class="badge">
+        <h1 class="my-5" style="text-align: center;">Login Page</h1>
+        <div class="card">
+            <div class="col-sm-6 mx-auto">
+        <table  >
+            <form method="POST" style="text-align: center; align-items: center;">
+                {% csrf_token %}
+                <tr>
+                    <td style="font-size:medium;">Login id:</td>
+                    <td><input type="text" name="username"style="width:300px;"><br><br></td>
+                </tr>
+                <tr></tr>
+                <td style="font-size:medium; margin-bottom:10px;">Password:</td>
+                <td ><input type="password" name="password"style="width:300px;"><br></td>
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="w-100 btn " style="background-color:beige; color:#0b6b7f;margin-top: 30px;">Login</button></td>
+                </tr>
+            </form>
+        </table>
+        </div>
+       
+        </div>
+    </div>
+</body>
+
+</html>
+
+{% endblock %}

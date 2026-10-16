@@ -1,0 +1,63 @@
+{% extends "userbase.html" %}
+{% load static %}
+{% block main %}
+
+<head>
+    <style>
+        th,
+        td {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h4 class="fw-bold" style="color:#0891B2;text-align: center;">View Posted Job</h5>
+        {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{m}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-borderd" style="margin: auto;">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Location</th>
+                        <th>Salary</th>
+                        <th>Job type</th>
+                        <th>Last Date</th>
+                        <th>Posted Date</th>
+                        <th>Apply</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for j in ji %}
+                    <tr>
+                        <td>{{j.id}}</td>
+                        <td>{{j.title}}</td>
+                        <td>{{j.description}}</td>
+                        <td>{{j.location}}</td>
+                        <td>{{j.salary}}</td>
+                        <td>{{j.jobtype}}</td>
+                        <td>{{j.lastdate}}</td>
+                        <td>{{j.posteddate}}</td>
+                        <td>
+                            <a href="{% url 'applyjob' jobid=j.id %}">
+                                <button type="button" class="btn btn-sm"
+                                    style="background-color: #0891B2;color: beige;">Apply</button>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+
+            
+{% endblock %}

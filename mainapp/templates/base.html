@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Job Portal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body{
+            font-family: Poppins,sans-serif;
+        }
+        .navbar-brand{
+            font-size: 17px;
+
+        }
+         
+    /* Custom footer styling */
+    .footer {
+      background-color: #343a40; /* Dark background */
+      color: #ffffff; /* White text */
+      padding: 40px 0;
+      margin-top: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer .social-icons a {
+      margin-right: 15px;
+      font-size: 1.5rem;
+    }
+  
+    </style>
+</head>
+
+<body>
+    <!-- navbar start -->
+        <div class=" nav" style="width: 100%;">
+            <div class="col-sm-12 " >
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid" style="height:50px;">
+                        <a class="navbar-brand d-flex align-items-center  " id="w" href="{% url 'index' %}">
+                            <img src="https://grplindia.com/wp-content/uploads/2024/04/logo-Grpl-1.png" alt="galaxylogo" height="50px">
+                            
+                            
+                        </a>
+                        
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon">Menu</span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link active mb-ml-2" aria-current="page" href="{% url 'index' %}" >Home
+                                            
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page"
+                                            href="{% url 'contact'  %}">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link active btn btn-outline" aria-current="page"
+                                            href="{% url 'login' %}" id="btn1" type="submit">Login</a><br>
+
+                                    </li>
+                                    <li>
+                                        <a class="nav-link active btn btn-outline" aria-current="page"
+                                            href="{% url 'register' %}" id="btn" type="submit">Register</a>
+                                    </li>
+                                </ul>
+                               
+                            </div>
+                        </div>
+                </nav>
+            </div>
+        </div>
+        <!-- navbar end -->
+   
+        
+        {% block main %}
+        {% endblock %}
+
+      
+<body>
+
+  <!-- Footer Section -->
+  <footer class="footer mt-auto">
+    <div class="container">
+      <div class="row">
+        <!-- About Section -->
+        <div class="col-md-4 mb-4">
+          <h5>About  Galaxy Resources </h5>
+          <p>Your trusted online job portal connecting employers and job seekers worldwide. Find your dream job today!</p>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'register' %}">Jobs</a></li>
+            <li><a href="{% url 'login' %}">Employers</a></li>
+          
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          </ul>
+        </div>
+        <!-- Contact & Social -->
+        <div class="col-md-4 mb-4">
+          <h5>Contact Us</h5>
+          <p><i class="bi bi-geo-alt-fill"></i> lekhraj market, Lucknow, India</p>
+          <p><i class="bi bi-telephone-fill"></i> +123 456 7890</p>
+          <p><i class="bi bi-envelope-fill"></i> galaxyresourcespvt@gmail.com</p>
+          <div class="social-icons mt-3">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <p>Designed  by Tripti Sahu</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and icons (for social icons) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</body>
+</html> 

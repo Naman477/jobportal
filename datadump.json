@@ -1,0 +1,261 @@
+[
+{
+  "model": "mainapp.logininfo",
+  "pk": 1,
+  "fields": {
+    "usertype": "admin",
+    "username": "admin@gmail.com",
+    "password": "admin"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 2,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "stripti686@gmail.com",
+    "password": "abc"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 3,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "tr@gmail.com",
+    "password": "1234"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 4,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "ts123@gmail.com",
+    "password": "job"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 5,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "rs@gmail.com",
+    "password": "trip"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 6,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "a@gmail.com",
+    "password": "456"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 7,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "kallu@gmail.com",
+    "password": "5555"
+  }
+},
+{
+  "model": "mainapp.logininfo",
+  "pk": 8,
+  "fields": {
+    "usertype": "jobseeker",
+    "username": "tripti686@gmail.com",
+    "password": "naman"
+  }
+},
+{
+  "model": "mainapp.jobseeker",
+  "pk": "kallu@gmail.com",
+  "fields": {
+    "name": "kallu madari",
+    "gender": "Male",
+    "contactno": "9022133445",
+    "qualification": "7thpass",
+    "experience": "no",
+    "keyskill": "ac servicing",
+    "address": "Chowk Bazaar Chowk Bazaar Churi Wali Gali\r\nLala Bazaar"
+  }
+},
+{
+  "model": "mainapp.jobseeker",
+  "pk": "rs@gmail.com",
+  "fields": {
+    "name": "Rishi",
+    "gender": "Female",
+    "contactno": "8970685746",
+    "qualification": "diploma in cse",
+    "experience": "no experience",
+    "keyskill": "python with django",
+    "address": "delhi"
+  }
+},
+{
+  "model": "mainapp.jobseeker",
+  "pk": "tripti686@gmail.com",
+  "fields": {
+    "name": "tripti sahu ",
+    "gender": "Female",
+    "contactno": "6392900250",
+    "qualification": "Diploma",
+    "experience": "1",
+    "keyskill": "python ",
+    "address": "Chowk Bazaar Chowk Bazaar Churi Wali Gali\r\nLala Bazaar"
+  }
+},
+{
+  "model": "mainapp.jobseeker",
+  "pk": "ts123@gmail.com",
+  "fields": {
+    "name": "richa",
+    "gender": "Female",
+    "contactno": "63924798031",
+    "qualification": "bca",
+    "experience": "2",
+    "keyskill": "python ",
+    "address": "fatehpur"
+  }
+},
+{
+  "model": "mainapp.enquiry",
+  "pk": 2,
+  "fields": {
+    "name": "richa",
+    "contactno": "9838505980",
+    "emailaddress": "stripti686@gmail.com",
+    "enquirytext": "private jobs",
+    "posteddate": "26/07/2026"
+  }
+},
+{
+  "model": "adminapp.jobinfo",
+  "pk": 1,
+  "fields": {
+    "title": "developers job",
+    "description": "we need software developer on python",
+    "location": "Lucknow",
+    "salary": 15000,
+    "jobtype": "Full time",
+    "lastdate": "2025-07-30",
+    "posteddate": "25/07/26"
+  }
+},
+{
+  "model": "adminapp.jobinfo",
+  "pk": 2,
+  "fields": {
+    "title": "data analyst",
+    "description": "12 years experience",
+    "location": "Lucknow",
+    "salary": 8000,
+    "jobtype": "Part time",
+    "lastdate": "2026-10-31",
+    "posteddate": "01/10/2026"
+  }
+},
+{
+  "model": "userapp.response",
+  "pk": 1,
+  "fields": {
+    "name": "richa",
+    "contactno": "63924798031",
+    "responsetype": "feed",
+    "subject": "feedback1",
+    "responsetext": "test feedback2",
+    "posteddate": "28/07/26"
+  }
+},
+{
+  "model": "userapp.response",
+  "pk": 2,
+  "fields": {
+    "name": "richa",
+    "contactno": "63924798031",
+    "responsetype": "comp",
+    "subject": "test complaint1",
+    "responsetext": "test complaint1\r\n",
+    "posteddate": "28/07/26"
+  }
+},
+{
+  "model": "userapp.response",
+  "pk": 3,
+  "fields": {
+    "name": "richa",
+    "contactno": "63924798031",
+    "responsetype": "comp",
+    "subject": "test complaint2",
+    "responsetext": "test complaint2",
+    "posteddate": "28/07/26"
+  }
+},
+{
+  "model": "userapp.response",
+  "pk": 4,
+  "fields": {
+    "name": "Rishi",
+    "contactno": "8970685746",
+    "responsetype": "feed",
+    "subject": "About Job application",
+    "responsetext": "After the job application ,I get sudden response ",
+    "posteddate": "30/07/26"
+  }
+},
+{
+  "model": "userapp.appliedjob",
+  "pk": 1,
+  "fields": {
+    "jobid": 1,
+    "title": "developers job",
+    "description": "we need software developer on python",
+    "name": "richa",
+    "contactno": "63924798031",
+    "emailaddress": "ts123@gmail.com",
+    "qualification": "bca",
+    "experience": "2",
+    "keyskill": "python ",
+    "applieddate": "29/07/2026"
+  }
+},
+{
+  "model": "userapp.appliedjob",
+  "pk": 2,
+  "fields": {
+    "jobid": 1,
+    "title": "developers job",
+    "description": "we need software developer on python",
+    "name": "Rishi",
+    "contactno": "8970685746",
+    "emailaddress": "rs@gmail.com",
+    "qualification": "diploma in cse",
+    "experience": "no experience",
+    "keyskill": "python with django",
+    "applieddate": "30/07/2026"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$oBjKLzcwzpvz0CC8BKmGSW$80kcLm1EQyTbJKpgSQFpiJcFo+LU+BIxSVnEIBqyOYw=",
+    "last_login": "2026-10-01T13:27:07.709Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-22T06:03:29.017Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

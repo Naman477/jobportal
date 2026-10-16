@@ -1,0 +1,27 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+<h3 style="background-color: beige; color:#0891B2;text-align: center;">View Job Seekers Complaint</h3>
+<hr>
+<table class="table table-bordered" style="width:50%; margin: auto; background-color: beige; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:medium;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Contact no</th>
+        <th>Subject</th>
+        <th>Complaint</th>
+        <th>Posted Date</th>
+    </tr>
+    {% for r in res %}
+<tr>
+    <td>{{r.id}}</td>
+    <td>{{r.name}}</td>
+    <td>{{r.contactno}}</td>
+    <td>{{r.subject}}</td>
+    <td>{{r.responsetext}}</td>
+    <td>{{r.posteddate}}</td>
+</tr>
+    {% endfor %}
+</table>
+{% endblock %}

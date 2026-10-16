@@ -1,0 +1,813 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<h1 class="my-5"></h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homepage</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .hero {
+      height: 60vh;
+      background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.75)0%, rgba(15, 23, 42, 0.75)), url('https://img.freepik.com/premium-photo/business-meeting-office-background-large-table-with-laptops_88135-41192.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .hero h1 {
+      text-align: center;
+      color: white;
+      font-weight: 800;
+      margin-bottom: 200px;
+      margin-left: 150px;
+
+    }
+
+    .hero p {
+      text-align: center;
+      color: #0891B2;
+      margin-left: 100px;
+
+
+    }
+
+
+    h1,
+    h2,
+    h3,
+    .display-font {
+      font-family: 'Zilla Slab', serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      background-color: #0891B2;
+    }
+     .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid #0891B2;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 22px;
+      background-color:beige;
+    }
+    .hero .sub {
+      font-size:100px;
+      line-height: 1.6;
+      color:#0891B2;
+      max-width: 460px;
+      background-color: #0891B2;
+      font-weight: 400;
+    }
+    .mono {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    
+    /* ---------- NAV ---------- */
+    /* ---------- HERO ---------- */
+    .hero h1 em {
+      font-style: normal;
+      color:#1c3156;
+    }
+    /* booking widget */
+    .booking {
+      background:beige;
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      color:#0891B2;
+    }
+
+    .booking label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color:#0891B2;
+      font-weight: 600;
+    }
+
+    .booking .form-control,
+    .booking .form-select {
+      border: none;
+      border-bottom: 2px solid rgba(18, 32, 58, 0.18);
+      border-radius: 0;
+      background: transparent;
+      padding-left: 2px;
+    }
+
+    .booking .form-control:focus,
+    .booking .form-select:focus {
+      box-shadow: none;
+      border-color:#0891B2;
+    }
+
+    /* ---------- SPLIT-FLAP BOARD ---------- */
+    .board {
+      background-color:beige;
+      border-radius: 10px;
+      padding: 22px 20px 24px;
+      border: 1px solid rgba(243, 236, 220, 0.08);
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4), 0 25px 60px rgba(0, 0, 0, 0.75);
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .board-head {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color:#0891B2;
+    }
+
+    .board-head .live {
+      color:#0891B2;
+    }
+
+    .board-head .live::before {
+      content: "● ";
+    }
+
+    .board-row {
+      border-bottom: 1px dashed rgba(243, 236, 220, 0.1);
+      padding: 9px 4px;
+      background-color:beige;
+      color:#0891B2;
+    }
+
+    .board-row:last-child {
+      border-bottom: none;
+    }
+
+    .flap-code {
+      font-family: 'IBM Plex Mono', monospace;
+      color:#0891B2;
+      font-size: 13px;
+      font-weight: 600;
+      background-color:beige;
+    }
+
+    .flap {
+      display: inline-block;
+      background:#0891B2;
+      color:black;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 4px 2px;
+      border-radius: 2px;
+      min-width: 11px;
+      text-align: center;
+      animation: flapin 0.6s ease both;
+    }
+
+    @keyframes flapin {
+      0% {
+        transform: rotateX(120deg);
+        opacity: 0;
+      }
+
+      60% {
+        transform: rotateX(-10deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotateX(0deg);
+      }
+    }
+
+    .board-row:nth-child(2) .flap {
+      animation-delay: .05s;
+    }
+
+    .board-row:nth-child(3) .flap {
+      animation-delay: .15s;
+    }
+
+    .board-row:nth-child(4) .flap {
+      animation-delay: .25s;
+    }
+
+    .board-row:nth-child(5) .flap {
+      animation-delay: .35s;
+    }
+
+    .flap-loc,
+    .flap-status {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color:beige;
+    }
+
+    .flap-status.open {
+      color:#0891B2;
+      font-weight: 600;
+    }
+
+    .board-footer {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      color:#0891B2;
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ---------- STATS STRIP ---------- */
+    .stub-strip {
+      background-color:beige;
+      border-top: 1px solid #0891B2;
+      border-bottom: 1px solid #0891B2;
+    }
+
+    .stub-col {
+      border-left: 1px dashed #0891B2;
+    }
+
+    .stub-col:first-child {
+      border-left: none;
+    }
+
+    .stub-num {
+      font-family: 'Zilla Slab', serif;
+      font-size: 34px;
+      color:#0891B2;
+      font-weight: 700;
+    }
+
+    .stub-lbl {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color:#0891B2;
+    }
+
+    /* ---------- SECTION HEAD ---------- */
+    .sec-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color:#0891B2;
+    }
+
+    .sec-head h2 {
+      font-size: 34px;
+      color:#0891B2;
+    }
+
+    .sec-head p {
+      background-color:beige;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #0891B2;
+    }
+
+    .view-all {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color:#0891B2;
+      border-bottom: 1px solid #0891B2;
+      padding-bottom: 2px;
+    }
+
+    /* ---------- TICKET CARDS ---------- */
+    .ticket {
+      background-color:beige;
+      border-radius: 10px;
+      color:#0891B2;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+      border: none;
+    }
+
+    .ticket:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38);
+    }
+
+    .ticket-stub {
+      width: 88px;
+      background-color:beige;
+      border-left: 2px dashed rgba(18, 32, 58, 0.25);
+      position: relative;
+    }
+
+    .ticket-stub::before,
+    .ticket-stub::after {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color:beige;
+      border-radius: 50%;
+      left: -9px;
+    }
+
+    .ticket-stub::before {
+      top: -8px;
+    }
+
+    .ticket-stub::after {
+      bottom: -8px;
+    }
+
+    .t-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0891B2;
+      font-weight: 600;
+    }
+
+    .t-title {
+      font-family: 'Zilla Slab', serif;
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .t-company {
+      font-size: 14px;
+      color:#0891B2;
+    }
+
+    .t-meta {
+      font-size: 12.5px;
+      color:#0891B2;
+    }
+
+    .stub-salary {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color:#0891B2;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    .stub-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color:#0891B2;
+      border: 1px solid;
+      padding: 3px 6px;
+      border-radius: 3px;
+      writing-mode: vertical-rl;
+    }
+
+    /* ---------- GATES / CONCOURSE ---------- */
+    .gate {
+      border: 1px solid #0891B2;
+      border-radius: 8px;
+      padding: 24px 20px;
+      transition: border-color .2s, background .2s;
+      height: 100%;
+      background-color: beige;
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38);;
+    }
+
+    .gate:hover {
+      border-color: #0891B2;
+      background:beige;
+    }
+
+    .gate-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color:#0891B2;
+    }
+
+    .gate h3 {
+      font-size: 20px;
+      color:beige;
+    }
+
+    .gate p {
+      font-size: 13.5px;
+      color:#0891B2;
+    }
+
+    .gate .count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color:#0891B2;
+    }
+
+    /* ---------- PROCESS ---------- */
+    .process-wrap {
+      position: relative;
+    }
+
+    .process-line {
+      position: absolute;
+      top: 34px;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, rgba(11, 97, 100, 0.5) 0 10px, transparent 10px 20px);
+    }
+
+    .step-mark {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background:beige;
+      border: 2px solid #0891B2;
+      color:#0891B2 ;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Zilla Slab', serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .step h3 {
+      font-size: 19px;
+      color:#0891B2;
+    }
+
+    .step p {
+      font-size: 14px;
+      color:#0891B2;
+      line-height: 1.6;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    /* ---------- CTA BANNER ---------- */
+    .cta-banner {
+      background: linear-gradient(120deg,#0891B2,#1c3156);
+      border-radius: 14px;
+      padding: 56px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::after {
+      align-items: center;
+      content: "Galaxy";
+      position: absolute;
+      right: 10px;
+      bottom: -38px;
+      font-family: 'Zilla Slab', serif;
+      font-weight: 700;
+      font-size: 120px;
+      color:beige;
+      letter-spacing: -2px;
+      pointer-events: none;
+      margin-right:30px ;
+      margin-bottom: 40px;
+    }
+
+    .cta-banner h2 {
+      font-size: 32px;
+      color:#0891B2;
+      max-width: 460px;
+    }
+    /* Container layout */
+.logo-slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo-slider-container h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Slider viewport window */
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  
+  padding: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border-radius: 12px;
+}
+
+/* Gradient shadow fading edges */
+.logo-slider::before,
+.logo-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-slider::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+}
+
+.logo-slider::after {
+  right: 0;
+  background: linear-gradient(to left,rgba(255, 255, 255, 0) , rgba(255, 255, 255, 0));
+}
+
+/* Moving Track */
+.logo-track {
+  display: flex;
+  width: calc(250px * 16); /* width of slide * total number of slides (original + duplicate) */
+  animation: scroll 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.logo-track:hover {
+  animation-play-state: paused;
+}
+
+/* Individual Slide Styling */
+.logo-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  padding: 0 20px;
+}
+
+.logo-slide img {
+  max-width: 130px;
+  max-height: 50px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.logo-slide img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Infinite Scroll Keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8)); /* Translate by the exact width of one full set */
+  }
+}
+   </style>
+</head>
+
+<body>
+  <div class="hero">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <h1 class="mb-0">Welcome to Galaxy Resources</h1>
+        <p>Explore thousands of remote and full-time opportunities from <br>fast-growing
+          startups and top tech enterprises.</p>
+        <button class="btn btn-dark" ><a href="{% url 'register' %}" style="color: white;">Create Account +</a></button>
+        <button class="btn btn-light"><a href="{% url 'about' %}" style="color:black;">Learn More</a></button>
+
+
+      </div>
+    </div>
+  </div>
+  <!-- HERO -->
+  
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <span class="eyebrow">Dream  Jobs  are open today</span>
+          <h1 class="sub my-4" style="color: beige;"> Easy Steps <em> To Get Your Dream Job</em> With Our Platform </h1>
+
+
+        </div>
+
+        <div class="col-lg-6">
+          <div class="board" id="board">
+            <div class="board-head d-flex justify-content-between mb-3">
+              <p><div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://img.freepik.com/premium-photo/team-software-developers-coding-collaborating_1047061-1434.jpg" style="height:10%;" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://blog.milestoneinternet.com/wp-content/uploads/2023/01/AI-and-Business.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.uplers.com/wp-content/uploads/2022/10/UI-UX-Designer-Job-Description-01-1-891x505.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div></p>
+            </div>
+</div>
+      </div>
+      </div>     
+  <!-- STATS -->
+  <div class="stub-strip py-4">
+    <div class="container">
+      <div class="row text-center g-3">
+        <div class="col-6 col-md-3 stub-col">
+          <div class="stub-lbl">
+            <h5 style="color: #0891B2; margin-top: 10%;">Register to know more</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 stub-col">
+          <div class="stub-num">860+</div>
+          <div class="stub-lbl">Companies</div>
+        </div>
+        <div class="col-6 col-md-3 stub-col">
+          <div class="stub-num">2.1 days</div>
+          <div class="stub-lbl">Avg. response</div>
+        </div>
+        <div class="col-6 col-md-3 stub-col">
+          <div class="stub-num">92%</div>
+          <div class="stub-lbl">Reply rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <section class="py-5 py-lg-6" id="featured" style="padding-top:86px; padding-bottom:86px;">
+    <div class="container">
+      <div class="row align-items-end mb-5 gy-3">
+        <div class="col-lg-8">
+          <span class="sec-tag d-block mb-2">Get Job now</span>
+          <h2 style="color: beige;">Featured openings</h2>
+          <p class="mb-0" style="color: #0891B2; background-color: beige;"><b>Hand-checked roles from teams that reply. Tear along the dashed line, keep the stub as your
+            confirmation.</b></p>
+        </div>
+        
+      </div>
+
+      <div class="row ">
+        <div class="col-lg-12">
+          <div class="ticket d-flex h-100">
+            <div class="flex-grow-1 p-4">
+              <div>
+                <div class="logo-slider-container">
+  <h2 style="color: beige;">Trusted by Industry Leaders</h2>
+  <div class="logo-slider">
+    <div class="logo-track">
+      <!-- Slide Set 1 -->
+      <div class="logo-slide"><img src="https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service.png" alt="TCS"></div>
+      <div class="logo-slide"><img src="https://images.seeklogo.com/logo-png/7/1/infosys-logo-png_seeklogo-71675.png" alt="Infosys"></div>
+      <div class="logo-slide"><img src="https://mms.businesswire.com/media/20190123005482/en/594194/23/Wiprologo1.jpg" alt="Wipro"></div>
+      <div class="logo-slide"><img src="https://thewealthmosaic.s3.amazonaws.com/media/Logo_HCL_Technologies.png" alt="HCLTech"></div>
+      <div class="logo-slide"><img src="https://mma.prnewswire.com/media/2804444/Tech_Mahindra_New_Logo.jpg" alt="Tech Mahindra"></div>
+      
+      <!-- Slide Set 2 (Duplicate for seamless infinite scroll) -->
+      <div class="logo-slide"><img src="https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service.png" alt="TCS"></div>
+      <div class="logo-slide"><img src="https://images.seeklogo.com/logo-png/7/1/infosys-logo-png_seeklogo-71675.png" alt="Infosys"></div>
+      <div class="logo-slide"><img src="https://mms.businesswire.com/media/20190123005482/en/594194/23/Wiprologo1.jpg" alt="Wipro"></div>
+      <div class="logo-slide"><img src="https://thewealthmosaic.s3.amazonaws.com/media/Logo_HCL_Technologies.png" alt="HCLTech"></div>
+      <div class="logo-slide"><img src="https://mma.prnewswire.com/media/2804444/Tech_Mahindra_New_Logo.jpg" alt="Tech Mahindra"></div>
+      
+    </div>
+  </div>
+</div>
+      </div></div></div></div></div></div>        </div>
+
+  <!-- CONCOURSE -->
+  <section id="concourse" style="padding-top:86px; padding-bottom:86px;">
+    <div class="container">
+      <div class="mb-5">
+        <span class="sec-tag d-block mb-2">Explore by Posted Job</span>
+        <h2 style="color: beige;">The Job opportunities</h2>
+        <p class="mb-0" style="color: #0891B2;">Every department has its own Job. Walk through to see what's Job.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="gate">
+            <div class="gate-num mb-3">JOB 01</div>
+            <h3>Engineering</h3>
+            <p>Backend, infra, mobile, and platform teams hiring now.</p>
+            
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="gate">
+            <div class="gate-num mb-3">JOB 02</div>
+            <h3>Design</h3>
+            <p>Product, brand, and research roles across every stage.</p>
+                     </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="gate">
+            <div class="gate-num mb-3">JOB 03</div>
+            <h3>Marketing</h3>
+            <p>Growth, content, and lifecycle teams looking to scale.</p>
+                      </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="gate">
+            <div class="gate-num mb-3">JOB 04</div>
+            <h3>Operations</h3>
+            <p>People, finance, and support roles keeping things moving.</p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="padding-top:86px; padding-bottom:86px;">
+    <div class="container">
+      <div class="mb-5">
+        <span class="sec-tag d-block mb-2">The route</span>
+        <h2 style="color: beige;">How it works</h2>
+      </div>
+      <div class="row process-wrap gy-5">
+        <div class="process-line d-none d-md-block"></div>
+        <div class="col-md-4 text-center step">
+          <div class="step-mark">01</div>
+          <h3>Check in</h3>
+          <p>Build a profile once. It carries your details to every application on Galaxy.</p>
+        </div>
+        <div class="col-md-4 text-center step">
+          <div class="step-mark">02</div>
+          <h3>Clear the job</h3>
+          <p>Talk to the team directly. No recruiter relay, no application black hole.</p>
+        </div>
+        <div class="col-md-4 text-center step">
+          <div class="step-mark">03</div>
+          <h3>Job</h3>
+          <p>Get an offer, or clear feedback on why not — every time, no exceptions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding-bottom:86px;">
+    <div class="container">
+      <div class="cta-banner d-flex flex-wrap justify-content-between align-items-center gap-4">
+        <h2 class="mb-60 " style="color: beige;">Ready to see what's recruitment? Your Job <Portal></Portal> is already open.</h2>
+             </div>
+    </div>
+  </section>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Split-flap board: render each job title as individual animated flap letters
+    document.querySelectorAll('.flap-title').forEach(function (el) {
+      var word = el.getAttribute('data-word');
+      word.split('').forEach(function (ch) {
+        var span = document.createElement('span');
+        span.className = 'flap';
+        span.textContent = ch === ' ' ? '\u00A0' : ch;
+        el.appendChild(span);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
+
+</html>
+{% endblock %}

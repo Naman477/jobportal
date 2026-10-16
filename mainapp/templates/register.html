@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .col-sm-7 {
+            background-color: beige;
+            color: #0a7286;
+            margin-bottom: 4vh;
+            animation: flapin 0.6s ease both;
+            border: 1px dashed #0a7286;
+        }
+
+        .col-sm-4 {
+            background-color: beige;
+            color: #0a7286;
+            margin-bottom: 4vh;
+            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.75)0%, rgba(15, 23, 42, 0.75)), url('https://www.trentondaily.com/wp-content/uploads/2023/03/Job-Hunting-Illustration-1.jpg');
+            border: 1px dashed #0a7286;
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            margin-left: 5px;
+            animation: flapin 0.6s ease both;
+
+        }
+
+        @keyframes flapin {
+            0% {
+                transform: rotateX(120deg);
+                opacity: 0;
+            }
+
+            60% {
+                transform: rotateX(-10deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: rotateX(0deg);
+            }
+        }
+
+        .col-sm-4 .flap {
+            animation-delay: .05s;
+        }
+
+        .col-sm-7 .flap {
+            animation-delay: .15s;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="my-5"
+        style="text-align:center; background-color: #0a7286;color: beige;font-family: Georgia, 'Times New Roman', Times, serif;">
+        Job Seeker Registration</h2>
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{m}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-7">
+
+
+                    <table class="table table-bordered"
+                        style="width:50%;margin:auto; font-family:Georgia, 'Times New Roman', Times, serif;">
+                        <tr>
+                            <td>Enter Name</td>
+                            <td><input type="text" name="name" class="form-control" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Select Gender</td>
+                            <td><input type="radio" class="form-check-input" value="Male" name="gender">Male
+                                <input type="radio" class="form-check-input" value="Female" name="gender">Female
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Enter Contact no</td>
+                            <td><input type="number" name="contactno" class="form-control" required /></td>
+
+                        </tr>
+                        <tr>
+                            <td>Enter Email address</td>
+                            <td>
+                                <input type="email" name="emailaddress" class="form-control" required />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Enter Qualification</td>
+                            <td>
+                                <input type="text" name="qualification" class="form-control" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Enter Experience</td>
+                            <td>
+                                <input type="text" name="experience" class="form-control" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Enter KeySkill</td>
+                            <td><textarea name="keyskill" class="form-control" required></textarea></td>
+
+                        </tr>
+                        <tr>
+                            <td>Enter Address</td>
+                            <td><textarea name="address" class="form-control" required></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Enter password</td>
+                            <td>
+                                <input type="password" name="password" class="form-control" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button type="submit" class="btn w-100" name="submit"
+                                    style="background-color: #0a7286;color: beige;">register</button></td>
+                        </tr>
+                    </table>
+    </form>
+    </div>
+    <div class="col-sm-4 me-auto">
+
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+{% endblock %}

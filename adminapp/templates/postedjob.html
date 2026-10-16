@@ -1,0 +1,38 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<body>
+<h2 style="background-color: beige; color:#0891B2;text-align: center;">View Posted Job</h2>
+<hr>
+<table class="table table-borderd" style="margin: auto;background-color: beige; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:medium;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Job type</th>
+            <th>Last Date</th>
+            <th>Posted Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for j in ji %}
+        <tr>
+            <td>{{j.id}}</td>
+            <td>{{j.title}}</td>
+            <td>{{j.description}}</td>
+            <td>{{j.location}}</td>
+            <td>{{j.salary}}</td>
+            <td>{{j.jobtype}}</td>
+            <td>{{j.lastdate}}</td>
+            <td>{{j.posteddate}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+
+</table>
+</body>
+{% endblock %}

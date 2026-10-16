@@ -1,0 +1,47 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+
+<body>
+    <h3 style="background-color: beige; color:#0891B2;text-align: center;">View Enquiries</h3>
+    {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{m}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <hr />
+    <table style="width:80%; background-color:beige; font-family: Georgia, 'Times New Roman', Times, serif;"font-size:medium;>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Contact no</th>
+                <th>Email address</th>
+                <th>Enquiry text</th>
+                <th>Posted Date</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in enq %}
+            <tr>
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.contactno}}</td>
+                <td>{{e.emailaddress}}</td>
+                <td>{{e.enquirytext}}</td>
+                <td>{{e.posteddate}}</td>
+                <td>
+                    <a href="{% url 'deleteenq' id=e.id %}">
+                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+{% endblock %}

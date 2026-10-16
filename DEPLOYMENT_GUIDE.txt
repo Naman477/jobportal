@@ -1,0 +1,148 @@
+================================================================================
+          EASY STEP-BY-STEP GUIDE: DEPLOY DJANGO APP TO PYTHONANYWHERE
+================================================================================
+
+Website URL after deployment: 
+https://<your-username>.pythonanywhere.com
+
+--------------------------------------------------------------------------------
+STEP 1: CREATE A FREE ACCOUNT
+--------------------------------------------------------------------------------
+1. Go to https://www.pythonanywhere.com
+2. Click "Pricing & signup" -> Click "Create a Beginner account" (100% Free).
+3. Choose your username carefully:
+   Your website link will be: https://<your-username>.pythonanywhere.com
+4. Complete the registration and log in to your dashboard.
+
+
+--------------------------------------------------------------------------------
+STEP 2: PUSH YOUR CODE TO GITHUB (FROM YOUR LAPTOP)
+--------------------------------------------------------------------------------
+Open PowerShell on your computer in this project folder:
+C:\Users\Lenovo\Desktop\jobportal
+
+Run the following commands one by one:
+
+1. Initialize git and commit:
+   git init
+   git add .
+   git commit -m "Deploy jobportal project"
+
+2. Create a new repository on GitHub (name it: jobportal).
+   Do NOT check "Add README" or "Add .gitignore" on GitHub.
+
+3. Link and push to GitHub (replace with your GitHub repository link):
+   git branch -M main
+   git remote add origin https://github.com/<your-github-username>/jobportal.git
+   git push -u origin main
+
+
+--------------------------------------------------------------------------------
+STEP 3: CLONE YOUR CODE ON PYTHONANYWHERE
+--------------------------------------------------------------------------------
+1. In your PythonAnywhere Dashboard, click on "Consoles".
+2. Click on "Bash" to open a new terminal.
+3. In the black terminal screen, type and run:
+
+   git clone https://github.com/<your-github-username>/jobportal.git
+
+4. Verify the folder is there:
+   ls
+   (You should see 'jobportal' listed).
+
+
+--------------------------------------------------------------------------------
+STEP 4: CREATE VIRTUAL ENVIRONMENT & INSTALL DEPENDENCIES
+--------------------------------------------------------------------------------
+In the same PythonAnywhere Bash terminal, run these commands:
+
+1. Enter your project folder:
+   cd jobportal
+
+2. Create Python 3.10 virtual environment:
+   mkvirtualenv --python=/usr/bin/python3.10 jobportal-env
+
+3. Install required packages:
+   pip install -r requirements.txt
+
+4. Run migrations (to set up the database tables):
+   python manage.py migrate
+
+5. Load existing admin user, jobs & data into the database:
+   python manage.py loaddata datadump.json
+
+6. Collect static files (CSS, JS, images):
+   python manage.py collectstatic --noinput
+
+
+--------------------------------------------------------------------------------
+STEP 5: CONFIGURE THE WEB APP ON PYTHONANYWHERE
+--------------------------------------------------------------------------------
+1. Go back to PythonAnywhere dashboard and click on the "Web" tab at top.
+2. Click the blue button: "Add a new web app".
+3. Click "Next".
+4. Select "Manual configuration (including virtualenvs)".
+5. Select "Python 3.10" and click "Next".
+
+Now on the Web configuration page, configure these sections:
+
+A. CODE SECTION:
+   - Source code:
+     /home/<your-username>/jobportal
+
+   - Working directory:
+     /home/<your-username>/jobportal
+
+B. VIRTUALENV SECTION:
+   - Click on the path link and enter:
+     /home/<your-username>/.virtualenvs/jobportal-env
+
+C. STATIC FILES SECTION:
+   Add one row:
+   - URL:
+     /static/
+   - Directory:
+     /home/<your-username>/jobportal/staticfiles/
+
+D. WSGI CONFIGURATION FILE:
+   - Click on the link next to "WSGI configuration file":
+     (e.g., /var/www/<your-username>_pythonanywhere_com_wsgi.py)
+   - Delete all text inside that file.
+   - Paste the following code:
+
+----------------- COPY CODE BELOW FOR WSGI FILE -----------------
+import os
+import sys
+
+path = '/home/<your-username>/jobportal'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'jobportal.settings'
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+----------------- END OF WSGI CODE -----------------
+
+   *(IMPORTANT: Replace '<your-username>' with your real PythonAnywhere username!)*
+   - Click the green "Save" button in top right.
+
+
+--------------------------------------------------------------------------------
+STEP 6: RELOAD AND TEST YOUR SITE
+--------------------------------------------------------------------------------
+1. Go back to the "Web" tab.
+2. Click the big green button:
+   "Reload <your-username>.pythonanywhere.com"
+3. Open your browser and visit:
+   https://<your-username>.pythonanywhere.com
+
+Your Job Portal is live online!
+
+--------------------------------------------------------------------------------
+ADMIN LOGIN CREDENTIALS:
+--------------------------------------------------------------------------------
+URL: https://<your-username>.pythonanywhere.com/login/
+Email / Username: admin@gmail.com
+Password: admin
+================================================================================

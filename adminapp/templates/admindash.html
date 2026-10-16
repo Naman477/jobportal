@@ -1,0 +1,62 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+<div class="container">
+    <div class="row p-3" style="background-color:#0891B2;color: beige;border-radius: 30px;">
+        <div class="col-sm-12">
+            <h3 class="mb-0" style="color:beige;">Galaxy Resources Panel</h3>
+            <p></p>
+        </div>
+        
+            </div>
+            <div class="row mt-4">
+            <div class="col-sm-3">
+                <div class="card border shadow-lg p-3" style="border-radius: 20px;">
+                    <h1>{{jscount}}</h1>
+                    <h5 class="fw-bold">Total Jobseeker</h5>
+                </div>
+        </div>
+        <div class="col-sm-3">
+                <div class="card border shadow-lg p-3" style="border-radius: 20px;">
+                    <h1>{{enqcount}}</h1>
+                    <h5 class="fw-bold">Total Enquiries</h5>
+                </div>
+        </div>
+        <div class="col-sm-3">
+                <div class="card border shadow-lg p-3" style="border-radius: 20px;">
+                    <h1>{{jobcount}}</h1>
+                    <h5 class="fw-bold">Total Job</h5>
+                </div>
+        </div>
+        <div class="col-sm-3">
+                <div class="card border shadow-lg p-3" style="border-radius: 20px;">
+                    <h1>{{compcount}}</h1>
+                    <h5 class="fw-bold">Total Complaints</h5>
+                </div>
+        </div>
+    </div>
+   </div>
+            <div class="row mt-4">
+            <div class="col-sm-3">
+                
+        </div>
+        <div class="col-sm-3">
+                <div class="card border shadow-lg p-3" style="border-radius: 20px;">
+                    <h1>{{feedcount}}</h1>
+                    <h5 class="fw-bold">Total Feedback</h5>
+                </div>
+        </div>
+        <div class="col-sm-3">
+                <div class="card border shadow-lg p-3" style="border-radius: 20px;">
+                    <h1>{{ajcount}}</h1>
+                    <h5 class="fw-bold">Total Applied Jobs</h5>
+                </div>
+        </div>
+        <div class="col-sm-3">
+                
+        </div>
+    </div>
+</div>
+
+{% endblock %}
