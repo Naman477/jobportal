@@ -3,118 +3,65 @@
 ================================================================================
 
 Website URL after deployment: 
-https://<your-username>.pythonanywhere.com
+https://naman1909.pythonanywhere.com
 
 --------------------------------------------------------------------------------
-STEP 1: CREATE A FREE ACCOUNT
+STEP 1: OPEN PYTHONANYWHERE
 --------------------------------------------------------------------------------
-1. Go to https://www.pythonanywhere.com
-2. Click "Pricing & signup" -> Click "Create a Beginner account" (100% Free).
-3. Choose your username carefully:
-   Your website link will be: https://<your-username>.pythonanywhere.com
-4. Complete the registration and log in to your dashboard.
+1. Log in to your PythonAnywhere account (naman1909) at https://www.pythonanywhere.com
 
 
 --------------------------------------------------------------------------------
-STEP 2: PUSH YOUR CODE TO GITHUB (FROM YOUR LAPTOP)
+STEP 2: RUN COMMANDS IN PYTHONANYWHERE BASH TERMINAL
 --------------------------------------------------------------------------------
-Open PowerShell on your computer in this project folder:
-C:\Users\Lenovo\Desktop\jobportal
+1. In PythonAnywhere, click on "Consoles" tab -> click on "Bash".
+2. In the Bash terminal, run these commands:
 
-Run the following commands one by one:
-
-1. Initialize git and commit:
-   git init
-   git add .
-   git commit -m "Deploy jobportal project"
-
-2. Create a new repository on GitHub (name it: jobportal).
-   Do NOT check "Add README" or "Add .gitignore" on GitHub.
-
-3. Link and push to GitHub (replace with your GitHub repository link):
-   git branch -M main
-   git remote add origin https://github.com/<your-github-username>/jobportal.git
-   git push -u origin main
-
-
---------------------------------------------------------------------------------
-STEP 3: CLONE YOUR CODE ON PYTHONANYWHERE
---------------------------------------------------------------------------------
-1. In your PythonAnywhere Dashboard, click on "Consoles".
-2. Click on "Bash" to open a new terminal.
-3. In the black terminal screen, type and run:
-
-   git clone https://github.com/<your-github-username>/jobportal.git
-
-4. Verify the folder is there:
-   ls
-   (You should see 'jobportal' listed).
-
-
---------------------------------------------------------------------------------
-STEP 4: CREATE VIRTUAL ENVIRONMENT & INSTALL DEPENDENCIES
---------------------------------------------------------------------------------
-In the same PythonAnywhere Bash terminal, run these commands:
-
-1. Enter your project folder:
+   git clone https://github.com/Naman477/jobportal.git
    cd jobportal
-
-2. Create Python 3.10 virtual environment:
    mkvirtualenv --python=/usr/bin/python3.10 jobportal-env
-
-3. Install required packages:
    pip install -r requirements.txt
-
-4. Run migrations (to set up the database tables):
    python manage.py migrate
-
-5. Load existing admin user, jobs & data into the database:
    python manage.py loaddata datadump.json
-
-6. Collect static files (CSS, JS, images):
    python manage.py collectstatic --noinput
 
 
 --------------------------------------------------------------------------------
-STEP 5: CONFIGURE THE WEB APP ON PYTHONANYWHERE
+STEP 3: CONFIGURE THE WEB APP ON PYTHONANYWHERE
 --------------------------------------------------------------------------------
-1. Go back to PythonAnywhere dashboard and click on the "Web" tab at top.
-2. Click the blue button: "Add a new web app".
-3. Click "Next".
-4. Select "Manual configuration (including virtualenvs)".
-5. Select "Python 3.10" and click "Next".
+1. In PythonAnywhere, click on the "Web" tab at top.
+2. Click the blue button: "Add a new web app" -> click "Next".
+3. Select "Manual configuration (including virtualenvs)" -> select "Python 3.10" -> click "Next".
 
-Now on the Web configuration page, configure these sections:
+4. On the Web configuration page, configure these exact fields:
 
 A. CODE SECTION:
    - Source code:
-     /home/<your-username>/jobportal
+     /home/naman1909/jobportal
 
    - Working directory:
-     /home/<your-username>/jobportal
+     /home/naman1909/jobportal
 
 B. VIRTUALENV SECTION:
-   - Click on the path link and enter:
-     /home/<your-username>/.virtualenvs/jobportal-env
+   - Click the path link and enter:
+     /home/naman1909/.virtualenvs/jobportal-env
 
 C. STATIC FILES SECTION:
-   Add one row:
    - URL:
      /static/
    - Directory:
-     /home/<your-username>/jobportal/staticfiles/
+     /home/naman1909/jobportal/staticfiles
 
 D. WSGI CONFIGURATION FILE:
-   - Click on the link next to "WSGI configuration file":
-     (e.g., /var/www/<your-username>_pythonanywhere_com_wsgi.py)
+   - Click on the link:
+     /var/www/naman1909_pythonanywhere_com_wsgi.py
    - Delete all text inside that file.
-   - Paste the following code:
+   - Paste this exact code:
 
------------------ COPY CODE BELOW FOR WSGI FILE -----------------
 import os
 import sys
 
-path = '/home/<your-username>/jobportal'
+path = '/home/naman1909/jobportal'
 if path not in sys.path:
     sys.path.append(path)
 
@@ -122,27 +69,23 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'jobportal.settings'
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
------------------ END OF WSGI CODE -----------------
 
-   *(IMPORTANT: Replace '<your-username>' with your real PythonAnywhere username!)*
-   - Click the green "Save" button in top right.
+   - Click the green "Save" button in the top right.
 
 
 --------------------------------------------------------------------------------
-STEP 6: RELOAD AND TEST YOUR SITE
+STEP 4: RELOAD AND OPEN YOUR LIVE SITE
 --------------------------------------------------------------------------------
 1. Go back to the "Web" tab.
 2. Click the big green button:
-   "Reload <your-username>.pythonanywhere.com"
-3. Open your browser and visit:
-   https://<your-username>.pythonanywhere.com
-
-Your Job Portal is live online!
+   "Reload naman1909.pythonanywhere.com"
+3. Open:
+   https://naman1909.pythonanywhere.com
 
 --------------------------------------------------------------------------------
-ADMIN LOGIN CREDENTIALS:
+LOGIN CREDENTIALS:
 --------------------------------------------------------------------------------
-URL: https://<your-username>.pythonanywhere.com/login/
+Admin Login URL: https://naman1909.pythonanywhere.com/login/
 Email / Username: admin@gmail.com
 Password: admin
 ================================================================================
