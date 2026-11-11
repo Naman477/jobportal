@@ -2,57 +2,51 @@
 {% extends 'adminbase.html' %}
 {% load static %}
 {% block admin %}
-<html>
-<body>
-
-<h2 style="color:#0891B2; background-color:BEIGE;text-align: center;">PostJob </h2>
+<div class="container py-3">
+    <h2 class="p-2 rounded" style="color:#0891B2; background-color:beige;text-align: center;">PostJob</h2>
 
     {% if messages %}
     {% for m in messages %}
-     {{m}}
+     <div class="alert alert-info">{{m}}</div>
     {% endfor %}
     {% endif %}
- <hr>   
-<form class="form-group" method="post">
-{% csrf_token %}
-<table class="table table-bordered" style="width:50%; margin: auto; background-color: beige; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:medium;">
-<tr>
-    <td>Enter Job Title</td>
-    <td><input type="text" name="title" class="form-control"required/>
-    </td>
-</tr>
-<tr>
-    <td>Enter Job Description</td>
-    <td><textarea name="description" class="form-control" required></textarea></td>
-</tr>
-<tr>
-    <td>Enter Location</td>
-    <td><input type="text" name="location" class="form-control" required></td>
-</tr>
-<tr>
-    <td>Enter Salary</td>
-    <td><input type="number" name="salary" class="form-control" required></td>
-</tr>
-<tr>
-    <td>Select Job Type</td>
-    <td><select name="jobtype" class="form-control">
-            <option>select job </option>
-            <option>Full time</option>
-            <option>Part time</option>
-            <option>Internship</option>
-    </select></td>
-</tr>
-<tr>
-    <td>Enter Last Date</td>
-    <td><input type="date" name="lastdate" class="form-control"></td>
-</tr>
-<tr>
-    <td></td>
-    <td>
-        <button type="submit" class="btn" style="background-color: #0891B2;color: aliceblue;">Post Job</button></td>
-</tr>
-</table>
-</form>
-</body>
-</html>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <form method="post" class="p-3 p-md-4 rounded border" style="background-color: beige; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size:medium;">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Enter Job Title</label>
+                    <input type="text" name="title" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Enter Job Description</label>
+                    <textarea name="description" class="form-control" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Enter Location</label>
+                    <input type="text" name="location" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Enter Salary</label>
+                    <input type="number" name="salary" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Select Job Type</label>
+                    <select name="jobtype" class="form-control">
+                        <option>select job </option>
+                        <option>Full time</option>
+                        <option>Part time</option>
+                        <option>Internship</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Enter Last Date</label>
+                    <input type="date" name="lastdate" class="form-control">
+                </div>
+                <button type="submit" class="btn w-100" style="background-color: #0891B2;color: aliceblue;">Post Job</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

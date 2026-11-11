@@ -128,7 +128,7 @@
     background:#0891B2;
     color:beige;
   }
-  .sidebar-nav .nav-link.active i{ color:#0891B2; }
+  .sidebar-nav .nav-link.active i{ color:beige; }
   .sidebar-nav .nav-link.active::before{
     content:"";
     position:absolute;
@@ -537,11 +537,13 @@
   
   // Time-based greeting
   (function(){
+    const greetingEl = document.getElementById('greetingText');
+    if (!greetingEl) return;
     const hour = new Date().getHours();
     let greeting = 'Good evening';
     if(hour < 12) greeting = 'Good morning';
     else if(hour < 17) greeting = 'Good afternoon';
-    document.getElementById('greetingText').textContent = greeting + ', Pushkar 👋';
+    greetingEl.textContent = greeting + ', {{js.name|default:"User"}}';
   })();
 </script>
 

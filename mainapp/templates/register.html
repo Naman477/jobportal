@@ -1,148 +1,109 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}Job Seeker Registration — Galaxy Resources{% endblock %}
+
+{% block extra_css %}
+<style>
+  .register-form-card {
+    background-color: beige;
+    color: #0a7286;
+    border: 1px dashed #0a7286;
+    border-radius: 12px;
+    padding: 24px 20px;
+  }
+
+  .register-side-banner {
+    background-color: beige;
+    color: #0a7286;
+    background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.72)),
+      url('https://www.trentondaily.com/wp-content/uploads/2023/03/Job-Hunting-Illustration-1.jpg');
+    border: 1px dashed #0a7286;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    min-height: 240px;
+    height: 100%;
+  }
+</style>
+{% endblock %}
+
 {% block main %}
-<!DOCTYPE html>
-<html lang="en">
+<div class="container py-4">
+  <h2 class="py-2 px-3 rounded mb-4"
+    style="text-align:center; background-color: #0a7286; color: beige; font-family: Georgia, 'Times New Roman', Times, serif;">
+    Job Seeker Registration
+  </h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .col-sm-7 {
-            background-color: beige;
-            color: #0a7286;
-            margin-bottom: 4vh;
-            animation: flapin 0.6s ease both;
-            border: 1px dashed #0a7286;
-        }
-
-        .col-sm-4 {
-            background-color: beige;
-            color: #0a7286;
-            margin-bottom: 4vh;
-            background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.75)0%, rgba(15, 23, 42, 0.75)), url('https://www.trentondaily.com/wp-content/uploads/2023/03/Job-Hunting-Illustration-1.jpg');
-            border: 1px dashed #0a7286;
-            background-size: cover;
-            background-position: top;
-            background-repeat: no-repeat;
-            margin-left: 5px;
-            animation: flapin 0.6s ease both;
-
-        }
-
-        @keyframes flapin {
-            0% {
-                transform: rotateX(120deg);
-                opacity: 0;
-            }
-
-            60% {
-                transform: rotateX(-10deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: rotateX(0deg);
-            }
-        }
-
-        .col-sm-4 .flap {
-            animation-delay: .05s;
-        }
-
-        .col-sm-7 .flap {
-            animation-delay: .15s;
-        }
-    </style>
-</head>
-
-<body>
-    <h2 class="my-5"
-        style="text-align:center; background-color: #0a7286;color: beige;font-family: Georgia, 'Times New Roman', Times, serif;">
-        Job Seeker Registration</h2>
-    {% if messages %}
+  {% if messages %}
     {% for m in messages %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        {{m}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      {{m}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     {% endfor %}
-    {% endif %}
-    <form method="post" class="form-group">
-        {% csrf_token %}
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-7">
+  {% endif %}
 
+  <form method="post">
+    {% csrf_token %}
+    <div class="row g-4 align-items-stretch">
+      <div class="col-12 col-lg-7">
+        <div class="register-form-card" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+          <div class="mb-3">
+            <label for="reg_name" class="form-label fw-semibold">Enter Name</label>
+            <input id="reg_name" type="text" name="name" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-semibold d-block">Select Gender</label>
+            <div class="form-check form-check-inline">
+              <input id="gender_male" type="radio" class="form-check-input" value="Male" name="gender" required>
+              <label for="gender_male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input id="gender_female" type="radio" class="form-check-input" value="Female" name="gender">
+              <label for="gender_female" class="form-check-label">Female</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="reg_contactno" class="form-label fw-semibold">Enter Contact no</label>
+            <input id="reg_contactno" type="number" name="contactno" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="reg_email" class="form-label fw-semibold">Enter Email address</label>
+            <input id="reg_email" type="email" name="emailaddress" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="reg_qual" class="form-label fw-semibold">Enter Qualification</label>
+            <input id="reg_qual" type="text" name="qualification" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="reg_exp" class="form-label fw-semibold">Enter Experience</label>
+            <input id="reg_exp" type="text" name="experience" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="reg_skill" class="form-label fw-semibold">Enter KeySkill</label>
+            <textarea id="reg_skill" name="keyskill" class="form-control" rows="2" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="reg_address" class="form-label fw-semibold">Enter Address</label>
+            <textarea id="reg_address" name="address" class="form-control" rows="2" required></textarea>
+          </div>
+          <div class="mb-4">
+            <label for="reg_password" class="form-label fw-semibold">Enter password</label>
+            <input id="reg_password" type="password" name="password" class="form-control" required />
+          </div>
+          <button type="submit" class="btn w-100 fw-semibold" name="submit"
+            style="background-color: #0a7286; color: beige;">
+            Register
+          </button>
+        </div>
+      </div>
 
-                    <table class="table table-bordered"
-                        style="width:50%;margin:auto; font-family:Georgia, 'Times New Roman', Times, serif;">
-                        <tr>
-                            <td>Enter Name</td>
-                            <td><input type="text" name="name" class="form-control" required /></td>
-                        </tr>
-                        <tr>
-                            <td>Select Gender</td>
-                            <td><input type="radio" class="form-check-input" value="Male" name="gender">Male
-                                <input type="radio" class="form-check-input" value="Female" name="gender">Female
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Enter Contact no</td>
-                            <td><input type="number" name="contactno" class="form-control" required /></td>
-
-                        </tr>
-                        <tr>
-                            <td>Enter Email address</td>
-                            <td>
-                                <input type="email" name="emailaddress" class="form-control" required />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Enter Qualification</td>
-                            <td>
-                                <input type="text" name="qualification" class="form-control" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Enter Experience</td>
-                            <td>
-                                <input type="text" name="experience" class="form-control" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Enter KeySkill</td>
-                            <td><textarea name="keyskill" class="form-control" required></textarea></td>
-
-                        </tr>
-                        <tr>
-                            <td>Enter Address</td>
-                            <td><textarea name="address" class="form-control" required></textarea></td>
-                        </tr>
-                        <tr>
-                            <td>Enter password</td>
-                            <td>
-                                <input type="password" name="password" class="form-control" required />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><button type="submit" class="btn w-100" name="submit"
-                                    style="background-color: #0a7286;color: beige;">register</button></td>
-                        </tr>
-                    </table>
-    </form>
+      <div class="col-12 col-lg-5">
+        <div class="register-side-banner"></div>
+      </div>
     </div>
-    <div class="col-sm-4 me-auto">
-
-    </div>
-    </div>
-    </div>
-</body>
-
-</html>
-
+  </form>
+</div>
 {% endblock %}

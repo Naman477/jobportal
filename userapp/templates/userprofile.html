@@ -3,34 +3,42 @@
 {% block main %}
 <h1 style="background-color: #0b6b7f; color:beige;text-align: center;">View Your profile</h1>
 <hr>
-<div class="container" style="background-color: beige;">
-<table class="table table-bordered" style="margin:auto;width:50%; ">
-    <tr>
-        <td>Name</td>
-        <td>{{js.name}}</td>
-    </tr>
-    <tr>
-        <td>Contact no</td>
-        <td>{{js.contactno}}</td>
-    </tr>
-    <tr>
-        <td>Email Address</td>
-        <td>{{js.emailaddress}}</td>
-    </tr>
-    <tr>
-        <td>Address</td>
-        <td>{{js.address}}</td>
-    </tr><tr>
-        <td>Qualification</td>
-        <td>{{js.qualification}}</td>
-    </tr><tr>
-        <td>Experience</td>
-        <td>{{js.experience}}</td>
-    <tr>
-        <td>Key Skills</td>
-        <td>{{js.keyskill}}</td>
-    </tr>
-</table>
+<div class="container p-3 rounded" style="background-color: beige;">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="table-responsive">
+                <table class="table table-bordered w-100 mb-0">
+                    <tr>
+                        <td>Name</td>
+                        <td>{{js.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contact no</td>
+                        <td>{{js.contactno}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address</td>
+                        <td>{{js.emailaddress}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{js.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Qualification</td>
+                        <td>{{js.qualification}}</td>
+                    </tr>
+                    <tr>
+                        <td>Experience</td>
+                        <td>{{js.experience}}</td>
+                    <tr>
+                        <td>Key Skills</td>
+                        <td>{{js.keyskill}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

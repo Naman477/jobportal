@@ -2,49 +2,36 @@
 {% load static %}
 
 {% block main %}
-<html>
-
-<body>
-    <h2 style="text-align: center; background-color: beige;color:#0891B2;">Change User Password</h2>
+<div class="container py-3">
+    <h2 class="p-2 rounded" style="text-align: center; background-color: beige; color:#0891B2;">Change User Password</h2>
     <hr>
     {% if messages %}
     {% for m in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
         {{m}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     {% endfor %}
     {% endif %}
-    <form class="form-group" method="POST" style="background-color: beige;">
-        {% csrf_token %}
-        <table class="table table-bordered" style="width: 80%; margin:auto; ">
-            <tr>
-                <td>Enter old Password</td>
-                <td>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <form method="POST" class="p-3 p-md-4 rounded border" style="background-color: beige;">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Enter old Password</label>
                     <input type="password" name="oldpassword" class="form-control" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Enter New Password</td>
-                <td>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Enter New Password</label>
                     <input type="password" name="newpassword" class="form-control" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Enter Confirm Password</td>
-                <td>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Enter Confirm Password</label>
                     <input type="password" name="confirmpassword" class="form-control" required>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <button type="submit" class="btn btn-success">Change Password</button>
-                </td>
-            </tr>
-        </table>
-    </form>
-</body>
-
-</html>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Change Password</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
